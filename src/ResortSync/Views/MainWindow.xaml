@@ -73,12 +73,6 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <!-- Footer -->
-                <TextBlock DockPanel.Dock="Bottom"
-                           Margin="20,0,20,16"
-                           FontSize="10.5" Opacity="0.55"
-                           TextWrapping="Wrap"
-                           Text="Local SQLite • Auto-expiry ON • v1.0" />
             </DockPanel>
         </Border>
 

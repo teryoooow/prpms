@@ -37,6 +37,7 @@ public sealed class NavigationService : INavigationService
             new("Dashboard", PackIconKind.ViewDashboardOutline, typeof(DashboardViewModel)),
             new("New Booking", PackIconKind.PlusCircleOutline, typeof(BookingFormViewModel)),
             new("All Bookings", PackIconKind.CalendarMultiple, typeof(BookingsViewModel)),
+            new("Calendar", PackIconKind.CalendarMonth, typeof(CalendarViewModel)),
             new("Payments", PackIconKind.Money, typeof(PaymentsViewModel)),
             new("Settings", PackIconKind.CogOutline, typeof(SettingsViewModel))
         };

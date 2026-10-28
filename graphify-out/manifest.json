@@ -6,9 +6,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/App.xaml": {
-    "mtime": 1792999834.2116477,
-    "seen": 1793001906.8829284,
-    "ast_hash": "bfa21093ed9230d98e5ffb8a257e82aa",
+    "mtime": 1793166729.8267846,
+    "seen": 1793166862.9621887,
+    "ast_hash": "9fc494ba94c2ec4026e32599ef6cb352",
     "semantic_hash": ""
   },
   "src/ResortSync/App.xaml.cs": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ResortSync.csproj": {
-    "mtime": 1793145902.7034037,
-    "seen": 1793148123.308377,
-    "ast_hash": "85b433d634945772a04d696600bbb57e",
+    "mtime": 1793167290.2145586,
+    "seen": 1793167388.6751313,
+    "ast_hash": "2d508a92249b442273a47edcc6c5eb12",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/BookingExpiryService.cs": {
@@ -114,9 +114,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Services/NavigationService.cs": {
-    "mtime": 1792998868.0214763,
-    "seen": 1793001906.8829284,
-    "ast_hash": "0533cf1f97562a28adb1724e9e03a16d",
+    "mtime": 1793166729.6034,
+    "seen": 1793166862.9621887,
+    "ast_hash": "1921f59139da6ed872951b06f6673a64",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/PaymentService.cs": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Views/MainWindow.xaml": {
-    "mtime": 1793145705.2096953,
-    "seen": 1793148123.308377,
-    "ast_hash": "1a47fd646fb00e000436f40bb59dcaec",
+    "mtime": 1793170828.3505292,
+    "seen": 1793170851.1694608,
+    "ast_hash": "6c045c67bddea741063d986bedb3ba0a",
     "semantic_hash": ""
   },
   "src/ResortSync/Views/MainWindow.xaml.cs": {
@@ -306,9 +306,27 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793145972.0729132,
-    "seen": 1793148123.308377,
-    "ast_hash": "6d2d386731f4cbb28e456cf19a47f268",
+    "mtime": 1793167287.5384164,
+    "seen": 1793167388.6751313,
+    "ast_hash": "656a29a06bd0ade8a73481d2a01feff4",
+    "semantic_hash": ""
+  },
+  "src/ResortSync/ViewModels/CalendarViewModel.cs": {
+    "mtime": 1793166622.598916,
+    "seen": 1793166862.9621887,
+    "ast_hash": "1da9485c95a0166a95d5de4f40407b62",
+    "semantic_hash": ""
+  },
+  "src/ResortSync/Views/CalendarView.xaml": {
+    "mtime": 1793166771.349779,
+    "seen": 1793166862.9621887,
+    "ast_hash": "6ddfde8de8548f99d43201053bc2f811",
+    "semantic_hash": ""
+  },
+  "src/ResortSync/Views/CalendarView.xaml.cs": {
+    "mtime": 1793166650.7217445,
+    "seen": 1793166862.9621887,
+    "ast_hash": "7422805592c8920c004f9a4878aeab38",
     "semantic_hash": ""
   }
 }

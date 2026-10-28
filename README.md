@@ -5,7 +5,7 @@ resort. It tracks bookings, enforces the 24-hour downpayment rule, records payme
 (downpayments, balance settlements, security deposits, refunds), prints receipts, and
 shows live revenue and collection stats — with a modern Material Design interface.
 
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Platform:** Windows 10/11 (x64) — self-contained installer, no .NET prerequisite needed  
 **Credit / Author:** **Terelle Sarmiento** ([@teryoooow](https://github.com/teryoooow))
 
@@ -17,6 +17,8 @@ shows live revenue and collection stats — with a modern Material Design interf
   downpayments, and a live alert list of bookings inside or past the 24-hour deposit window
 - **Booking management** — create/edit bookings with guest type-ahead search, stay type
   (overnight / 22-hour exclusive / tour), add-on catalog lines, and live price calculation
+- **Booking calendar** — month view of every occupied date with booking chips colored
+  Pending (amber) or Complete (brown); click a date to list its bookings and open them
 - **Double-booking protection** — authoritative date-conflict check at save time
 - **Payment ledger** — record payments, void mistakes (audit-safe), filter/search/export to CSV
 - **Automatic expiration** — a background worker flips overdue `PendingDeposit` bookings to
@@ -54,7 +56,7 @@ src/ResortSync/
 │                          ReceiptService / ThemeService / SettingsService
 │                          DialogService / NavigationService / DashboardInvalidator
 ├── ViewModels/            MainViewModel (shell/drawer), Dashboard, BookingForm,
-│                          Bookings, Payments, Settings, PaymentDialog, Receipt
+│                          Bookings, Calendar, Payments, Settings, PaymentDialog, Receipt
 ├── Views/                 XAML views + MainWindow shell with navigation drawer
 ├── Converters/            Status→brush, currency, deadline label, visibility helpers
 └── Assets/app.ico         Generated multi-size application/installer icon
@@ -80,7 +82,7 @@ Key design decisions:
 ## Getting the App
 
 ### End users
-Download and run **`PRPMS-Setup-1.0.0.exe`**. It installs to `Program Files\PRPMS`,
+Download and run **`PRPMS-Setup-1.0.1.exe`**. It installs to `Program Files\PRPMS`,
 creates Start Menu / desktop shortcuts, and needs nothing else installed.
 Your data lives in `%LocalAppData%\ResortSync\` and is kept on uninstall.
 
@@ -98,7 +100,7 @@ Build the installer:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File installer\build-installer.ps1
-# → installer\Output\PRPMS-Setup-1.0.0.exe
+# → installer\Output\PRPMS-Setup-1.0.1.exe
 ```
 
 > **Note:** the publish step is routed through `%TEMP%` inside `build-installer.ps1`

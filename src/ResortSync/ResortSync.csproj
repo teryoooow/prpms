@@ -8,6 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
     <RootNamespace>ResortSync</RootNamespace>
+    <!-- Release version (installer + shell footer read from here) -->
+    <Version>1.0.1</Version>
     <!-- Product identity (display name + exe); code namespaces stay ResortSync -->
     <AssemblyName>PRPMS</AssemblyName>
     <Product>PRPMS</Product>
