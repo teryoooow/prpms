@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/App.xaml.cs": {
-    "mtime": 1793057708.4194174,
-    "seen": 1793057932.7491875,
-    "ast_hash": "fccf8c001f689b47a06a512ab6d46e08",
+    "mtime": 1793145685.0741477,
+    "seen": 1793148123.308377,
+    "ast_hash": "51fc55f800037b0d1ec1ceb38655b69b",
     "semantic_hash": ""
   },
   "src/ResortSync/Constants/AppConstants.cs": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ResortSync.csproj": {
-    "mtime": 1793006503.1049736,
-    "seen": 1793006984.1585593,
-    "ast_hash": "1ea728bd9135d3cff74366229def5ce9",
+    "mtime": 1793145902.7034037,
+    "seen": 1793148123.308377,
+    "ast_hash": "85b433d634945772a04d696600bbb57e",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/BookingExpiryService.cs": {
@@ -126,15 +126,15 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Services/ReceiptService.cs": {
-    "mtime": 1793000878.6306179,
-    "seen": 1793001906.8829284,
-    "ast_hash": "cb16829c69213ca88d0a2abdeb318711",
+    "mtime": 1793145710.5061276,
+    "seen": 1793148123.308377,
+    "ast_hash": "da5c31f685b4e4ff803b21b6672e5857",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/SettingsService.cs": {
-    "mtime": 1792998677.3228052,
-    "seen": 1793001906.8829284,
-    "ast_hash": "4ee2c6bada420f256298f54291ef2706",
+    "mtime": 1793145712.2836926,
+    "seen": 1793148123.308377,
+    "ast_hash": "0dcc43a87d685f48caee2aea20552002",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/ThemeService.cs": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/MainViewModel.cs": {
-    "mtime": 1792999477.7820263,
-    "seen": 1793001906.8829284,
-    "ast_hash": "8b49620b12fe7765a46a92a8ee4cd839",
+    "mtime": 1793145682.4406922,
+    "seen": 1793148123.308377,
+    "ast_hash": "7c49e3a90a6edf57393908dcefde4d12",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/PaymentDialogViewModel.cs": {
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/PaymentsViewModel.cs": {
-    "mtime": 1792999199.9556484,
-    "seen": 1793001906.8829284,
-    "ast_hash": "15d3ac2e1649128c68eaa6197b051b6e",
+    "mtime": 1793145711.3165016,
+    "seen": 1793148123.308377,
+    "ast_hash": "92c95c34927863dc8fb3a6db646378c8",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/ReceiptViewModel.cs": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/SettingsViewModel.cs": {
-    "mtime": 1792999207.7172918,
-    "seen": 1793001906.8829284,
-    "ast_hash": "26f14481b3dba4437d9e4a55ea75b0ad",
+    "mtime": 1793145713.373947,
+    "seen": 1793148123.308377,
+    "ast_hash": "9e12ff5155ac5703fa50854c0a14fd71",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/ViewModelBase.cs": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Views/MainWindow.xaml": {
-    "mtime": 1793000130.4167933,
-    "seen": 1793001906.8829284,
-    "ast_hash": "58cb6475aac774a55a0b0b7863739547",
+    "mtime": 1793145705.2096953,
+    "seen": 1793148123.308377,
+    "ast_hash": "1a47fd646fb00e000436f40bb59dcaec",
     "semantic_hash": ""
   },
   "src/ResortSync/Views/MainWindow.xaml.cs": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Views/SettingsView.xaml": {
-    "mtime": 1793000466.9788892,
-    "seen": 1793001906.8829284,
-    "ast_hash": "75cafb903889f5c7c1cc3fae20375664",
+    "mtime": 1793145707.8226712,
+    "seen": 1793148123.308377,
+    "ast_hash": "e83e083c650a09356519442a549a0854",
     "semantic_hash": ""
   },
   "src/ResortSync/Views/SettingsView.xaml.cs": {
@@ -300,9 +300,15 @@
     "semantic_hash": ""
   },
   "installer/build-installer.ps1": {
-    "mtime": 1793006914.4324143,
-    "seen": 1793006984.1585593,
-    "ast_hash": "2eb913a8b49f117577d548937e97e0e7",
+    "mtime": 1793145917.124329,
+    "seen": 1793148123.308377,
+    "ast_hash": "2a892c8c003ad28446f2b313cb860ba1",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793145972.0729132,
+    "seen": 1793148123.308377,
+    "ast_hash": "6d2d386731f4cbb28e456cf19a47f268",
     "semantic_hash": ""
   }
 }
