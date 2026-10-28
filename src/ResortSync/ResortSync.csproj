@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ResortSync</RootNamespace>
+    <!-- Product identity (display name + exe); code namespaces stay ResortSync -->
+    <AssemblyName>PRPMS</AssemblyName>
+    <Product>PRPMS</Product>
+    <Company>Terelle Sarmiento</Company>
+    <AssemblyTitle>Private Resort Payment Monitoring System</AssemblyTitle>
+    <Description>Private Resort Payment Monitoring System</Description>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- Embedded Windows icon (also used by the installer) -->
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MVVM source generators ([ObservableProperty], [RelayCommand]) -->
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <!-- Modern Fluent-style Material Design themes for WPF -->
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <!-- EF Core 8 SQLite provider -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <!-- Generic Host for DI + hosted background services (auto-expiry worker) -->
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <!-- XAML behaviors (TextChanged → command binding on the booking form) -->
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+</Project>

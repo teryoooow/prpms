@@ -1,0 +1,92 @@
+<Window x:Class="ResortSync.Views.PaymentDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Record Payment"
+        Width="520" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="Segoe UI"
+        ShowInTaskbar="False">
+
+    <materialDesign:Card Padding="24,20" Margin="12">
+        <StackPanel>
+
+            <!-- Booking summary -->
+            <TextBlock Text="RECORD PAYMENT" Style="{StaticResource SectionTitle}" />
+            <TextBlock Text="{Binding GuestSummary}" FontSize="13" FontWeight="SemiBold"
+                       TextWrapping="Wrap" Margin="0,0,0,4" />
+            <TextBlock FontSize="12" Opacity="0.7" Margin="0,0,0,14">
+                <Run Text="Outstanding balance: " />
+                <Run Text="{Binding OutstandingBalance, Mode=OneWay, Converter={StaticResource Currency}}"
+                     FontWeight="Bold" />
+            </TextBlock>
+
+            <!-- Amount -->
+            <TextBlock Text="Amount paid ₱ *" Style="{StaticResource FieldLabel}" />
+            <TextBox Text="{Binding AmountPaid, UpdateSourceTrigger=PropertyChanged}"
+                     materialDesign:HintAssist.Hint="0.00"
+                     FontSize="16" Margin="0,0,0,10" />
+
+            <!-- Quick amounts -->
+            <WrapPanel Margin="0,0,0,14">
+                <Button Content="Half balance" FontSize="11.5" Padding="10,4" Margin="0,0,6,4"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Command="{Binding SetHalfAmountCommand}" />
+                <Button Content="Full balance" FontSize="11.5" Padding="10,4" Margin="0,0,6,4"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Command="{Binding SetAmountCommand}"
+                        CommandParameter="{Binding OutstandingBalance}" />
+            </WrapPanel>
+
+            <!-- Type + method -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Payment type" Style="{StaticResource FieldLabel}" />
+                    <ComboBox ItemsSource="{Binding PaymentTypes}"
+                              SelectedItem="{Binding PaymentType}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Payment method" Style="{StaticResource FieldLabel}" />
+                    <ComboBox ItemsSource="{Binding PaymentMethods}"
+                              SelectedItem="{Binding PaymentMethod}" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Reference + notes -->
+            <TextBlock Text="Reference number (GCash / Maya / bank trace #)"
+                       Style="{StaticResource FieldLabel}" Margin="0,12,0,2" />
+            <TextBox Text="{Binding ReferenceNumber, UpdateSourceTrigger=PropertyChanged}"
+                     materialDesign:HintAssist.Hint="Optional for cash" />
+
+            <TextBlock Text="Notes" Style="{StaticResource FieldLabel}" Margin="0,10,0,2" />
+            <TextBox Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True" TextWrapping="Wrap" MinHeight="48" />
+
+            <!-- Validation -->
+            <TextBlock Text="{Binding ValidationMessage}"
+                       Style="{StaticResource ErrorText}" />
+
+            <!-- Actions -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,18,0,0">
+                <Button Content="Cancel"
+                        Command="{Binding CancelCommand}"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Padding="18,9" Margin="0,0,10,0" IsCancel="True" />
+                <Button Content="Save Payment"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Padding="22,9" IsDefault="True" />
+            </StackPanel>
+        </StackPanel>
+    </materialDesign:Card>
+</Window>

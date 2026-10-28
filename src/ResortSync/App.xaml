@@ -1,0 +1,104 @@
+<Application x:Class="ResortSync.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:ResortSync.ViewModels"
+             xmlns:views="clr-namespace:ResortSync.Views"
+             xmlns:conv="clr-namespace:ResortSync.Converters"
+             ShutdownMode="OnMainWindowClose">
+
+    <!--
+      MaterialDesign3 dark theme by default (SettingsViewModel switches at runtime),
+      plus app-wide converters and the ViewModel → View navigation templates.
+      MainWindow is created from code-behind DI — no StartupUri.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Base theme + primary/secondary palette -->
+                <materialDesign:BundledTheme BaseTheme="Dark"
+                                             PrimaryColor="Teal"
+                                             SecondaryColor="Amber" />
+                <!-- MaterialDesign3 control styles -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ── Converters ─────────────────────────────────────────────── -->
+            <conv:StatusToBrushConverter x:Key="StatusToBrush" />
+            <conv:InverseBoolConverter x:Key="InverseBool" />
+            <conv:InverseBoolToVisibilityConverter x:Key="InverseBoolToVis" />
+            <conv:IsEmptyToVisibilityConverter x:Key="IsEmptyToVis" />
+            <conv:CurrencyConverter x:Key="Currency" />
+            <conv:DeadlineLabelConverter x:Key="DeadlineLabel" />
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+            <!-- ── Navigation: ViewModel → View ───────────────────────────── -->
+            <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                <views:DashboardView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BookingFormViewModel}">
+                <views:BookingFormView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BookingsViewModel}">
+                <views:BookingsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:PaymentsViewModel}">
+                <views:PaymentsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                <views:SettingsView />
+            </DataTemplate>
+
+            <!-- ── Shared styles ──────────────────────────────────────────── -->
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,0,0,4" />
+            </Style>
+
+            <Style x:Key="SectionTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,0,0,8" />
+                <Setter Property="Opacity" Value="0.85" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="Margin" Value="0,0,0,2" />
+                <Setter Property="Opacity" Value="0.7" />
+            </Style>
+
+            <!-- Stat card tile used on the dashboard -->
+            <Style x:Key="StatCard" TargetType="Border">
+                <Setter Property="Margin" Value="0,0,12,12" />
+                <Setter Property="Padding" Value="18,14" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+
+            <Style x:Key="StatValue" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="0,6,0,0" />
+            </Style>
+
+            <Style x:Key="StatCaption" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Opacity" Value="0.7" />
+            </Style>
+
+            <!-- Red validation text (conflicts, form errors) -->
+            <Style x:Key="ErrorText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#EF5350" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Margin" Value="0,6,0,0" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

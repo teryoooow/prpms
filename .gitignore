@@ -1,0 +1,28 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+artifacts/
+publish/
+installer/Output/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Local database (dev machines)
+*.db
+*.db-shm
+*.db-wal
