@@ -7,7 +7,7 @@ shows live revenue and collection stats — with a modern Material Design interf
 
 **Version:** 1.0.0  
 **Platform:** Windows 10/11 (x64) — self-contained installer, no .NET prerequisite needed  
-**Credit / Author:** **Terelle Sarmiento** ([@TerelleSarmiento](https://github.com/TerelleSarmiento))
+**Credit / Author:** **Terelle Sarmiento** ([@teryoooow](https://github.com/teryoooow))
 
 ---
 
@@ -88,7 +88,7 @@ Your data lives in `%LocalAppData%\ResortSync\` and is kept on uninstall.
 Requires the .NET 8 SDK.
 
 ```powershell
-git clone https://github.com/TerelleSarmiento/prpms.git
+git clone https://github.com/teryoooow/prpms.git
 cd prpms
 dotnet build ResortSync.sln -c Release        # build
 dotnet run --project src\ResortSync          # run from source
