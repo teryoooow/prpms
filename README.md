@@ -1,12 +1,15 @@
 # PRPMS — Private Resort Payment Monitoring System
 
-A production-ready **Windows desktop application** for monitoring payments at a private
-resort. It tracks bookings, enforces the 24-hour downpayment rule, records payments
-(downpayments, balance settlements, security deposits, refunds), prints receipts, and
-shows live revenue and collection stats — with a modern Material Design interface.
+A production-ready **Windows desktop + Android mobile** application suite for monitoring
+payments at a private resort. It tracks bookings, enforces the 24-hour downpayment rule,
+records payments (downpayments, balance settlements, security deposits, refunds), prints
+receipts, and shows live revenue and collection stats — with a modern Material Design
+interface on desktop and a MAUI app on Android. Both sides **two-way sync** through
+Firebase Firestore (Spark/free tier), so the front desk and staff on the floor always
+see the same data.
 
-**Version:** 1.0.1  
-**Platform:** Windows 10/11 (x64) — self-contained installer, no .NET prerequisite needed  
+**Version:** 1.0.2  
+**Platforms:** Windows 10/11 (x64) · Android 7.0+ (API 24+)  
 **Credit / Author:** **Terelle Sarmiento** ([@teryoooow](https://github.com/teryoooow))
 
 ---
@@ -28,41 +31,46 @@ shows live revenue and collection stats — with a modern Material Design interf
 - **Receipts** — printable receipt via the system print dialog
 - **Settings** — resort name, downpayment percentage (default 50%), default extra-guest
   rate, light/dark theme (persisted)
-- **Offline-first** — SQLite database stored locally; nothing leaves the machine
+- **Offline-first** — SQLite database stored locally; nothing leaves the machine until
+  cloud sync is enabled
+- **Two-way cloud sync** — desktop and Android share one Firestore project; last-write-wins
+  on `updated_at`, hard deletes propagate as tombstones, sync every 60s + on app resume,
+  manual **Sync Now** in Settings
 
 ## Tech Stack
 
 | Layer | Choice |
 |---|---|
-| UI | WPF (.NET 8), MaterialDesignInXAML 5.1 |
-| Pattern | MVVM (CommunityToolkit.Mvvm 8.2 — `[ObservableProperty]`, `[RelayCommand]`) |
+| Desktop UI | WPF (.NET 8), MaterialDesignInXAML 5.1 |
+| Mobile UI | .NET MAUI (`net8.0-android`; iOS/MacCatalyst TFMs ready for a Mac host) |
+| Pattern | MVVM (CommunityToolkit.Mvvm) |
 | Data | EF Core 8 + SQLite (`IDbContextFactory` pattern) |
-| Hosting | Generic Host (DI + hosted background service) |
-| Installer | Inno Setup 6 (self-contained win-x64 publish) |
+| Sync | Firebase Auth + Firestore REST (no mobile SDK) via `ResortSync.Core` |
+| Hosting | Generic Host on desktop; manual worker start on MAUI |
+| Installers | Inno Setup 6 (desktop) · signed APK (Android) |
 
 ## Architecture
 
 ```
-src/ResortSync/
-├── App.xaml(.cs)          Generic Host DI wiring, theme, VM→View DataTemplates,
-│                          global dispatcher exception guard, DB init on startup
-├── Constants/             Business constants (deposit hours, expiry interval, paths)
-├── Data/                  ResortDbContext + DbInitializer (schema + seed)
-├── Models/                Guest, Booking, PaymentTransaction, Addon, BookingAddon + enums
-├── Services/              BookingService   — pricing, conflicts, save/edit, status rules
-│                          PaymentService   — payments, balance recompute, ledger query
-│                          DashboardService — stats + deposit alerts
-│                          BookingExpiryService — PeriodicTimer background worker
-│                          ReceiptService / ThemeService / SettingsService
-│                          DialogService / NavigationService / DashboardInvalidator
-├── ViewModels/            MainViewModel (shell/drawer), Dashboard, BookingForm,
-│                          Bookings, Calendar, Payments, Settings, PaymentDialog, Receipt
-├── Views/                 XAML views + MainWindow shell with navigation drawer
-├── Converters/            Status→brush, currency, deadline label, visibility helpers
-└── Assets/app.ico         Generated multi-size application/installer icon
+src/
+├── ResortSync.Core/         Shared domain + sync (referenced by desktop AND mobile)
+│   ├── Data/                ResortDbContext + DbInitializer
+│   ├── Models/              Guest, Booking, PaymentTransaction, Addon, …
+│   ├── Services/            BookingService, PaymentService, DashboardService,
+│   │                        BookingExpiryService, SettingsService, …
+│   └── Sync/                SyncEngine, SyncCoordinator, SyncWorker,
+│                            FirebaseAuthClient, FirestoreRestClient, DocMapper
+├── ResortSync/              WPF desktop shell (Generic Host DI, MaterialDesign views)
+└── ResortSync.Mobile/       .NET MAUI app (Bookings / Payments / Settings tabs)
+    ├── MauiProgram.cs       DI + DbInitializer + manual worker StartAsync
+    └── Views/               BookingsPage, BookingDetailPage, NewBookingPage,
+                             RecordPaymentPage, PaymentsPage, SettingsPage
+
 installer/
-├── ResortSync.iss         Inno Setup script
-└── build-installer.ps1    One-shot publish + compile pipeline
+├── ResortSync.iss           Inno Setup script (desktop)
+├── build-installer.ps1      One-shot publish + compile pipeline
+├── build-apk.ps1            Signed Release APK (reads keystore.local.env)
+└── keystore/                [gitignored] Android signing key + local env
 ```
 
 Key design decisions:
@@ -78,32 +86,61 @@ Key design decisions:
 - **Money computed server-side** — the form's live calculator is advisory; the authoritative
   totals are recomputed in `BookingService.SaveBookingAsync` from source inputs.
 - **SQLite stored as text decimals** — sums are performed client-side after materialization.
+- **Sync pulls full collections every cycle** — resort-scale data is tiny; filtering by an
+  `updated_at` watermark skips remote rows older than the local max even when never seen
+  (first-sync skew). LWW makes re-applying known docs a no-op.
+- **Mobile workers started manually** — MAUI has no Generic Host, so `BookingExpiryService`
+  and `SyncWorker` are singletons `StartAsync`'d after `builder.Build()`; `OnResume` also
+  calls `SyncCoordinator.RequestSync()`.
 
 ## Getting the App
 
-### End users
-Download and run **`PRPMS-Setup-1.0.1.exe`**. It installs to `Program Files\PRPMS`,
+### End users — desktop
+Download and run **`PRPMS-Setup-1.0.2.exe`**. It installs to `Program Files\PRPMS`,
 creates Start Menu / desktop shortcuts, and needs nothing else installed.
 Your data lives in `%LocalAppData%\ResortSync\` and is kept on uninstall.
 
+### End users — Android
+Install the signed APK from `installer\Output\com.terelle.prpms-Signed.apk`
+(sideload; package `com.terelle.prpms`). Open **Settings → Cloud Sync**, enter the Firebase
+API key / project id / sync account, enable sync, then **Sync Now**.
+
 ### Developers
-Requires the .NET 8 SDK.
+Requires the .NET 8 SDK (+ Android workload for mobile: `dotnet workload install maui-android`).
 
 ```powershell
 git clone https://github.com/teryoooow/prpms.git
 cd prpms
-dotnet build ResortSync.sln -c Release        # build
-dotnet run --project src\ResortSync          # run from source
+dotnet build ResortSync.sln -c Release        # build desktop + core
+dotnet run --project src\ResortSync          # run desktop from source
+dotnet test tests\ResortSync.Tests -c Release # 24 unit tests
 ```
 
-Build the installer:
+Build the desktop installer:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File installer\build-installer.ps1
-# → installer\Output\PRPMS-Setup-1.0.1.exe
+# → installer\Output\PRPMS-Setup-1.0.2.exe
 ```
 
-> **Note:** the publish step is routed through `%TEMP%` inside `build-installer.ps1`
+Build the signed Android APK:
+
+```powershell
+# One-time: create installer\keystore\prpms.keystore with keytool and write
+# KEYSTORE_PATH / KEYSTORE_ALIAS / KEYSTORE_PASSWORD into
+# installer\keystore\keystore.local.env  (both paths are gitignored)
+powershell -ExecutionPolicy Bypass -File installer\build-apk.ps1
+# → installer\Output\com.terelle.prpms-Signed.apk  (copied from the build output)
+```
+
+Debug install on a connected device (must use `-p:EmbedAssembliesIntoApk=true`):
+
+```powershell
+dotnet build src\ResortSync.Mobile -f net8.0-android -c Debug -p:EmbedAssembliesIntoApk=true
+adb install -r src\ResortSync.Mobile\bin\Debug\net8.0-android\com.terelle.prpms-Signed.apk
+```
+
+> **Note:** the desktop publish step is routed through `%TEMP%` inside `build-installer.ps1`
 > because MSBuild's publish copy target mishandles apostrophes in paths (this project
 > originally lived under a folder name containing one).
 
@@ -137,16 +174,20 @@ powershell -ExecutionPolicy Bypass -File installer\build-installer.ps1
 
 | What | Where |
 |---|---|
-| Database | `%LocalAppData%\ResortSync\resortsync.db` (SQLite, WAL mode) |
-| Settings | `%LocalAppData%\ResortSync\settings.json` |
+| Desktop database | `%LocalAppData%\ResortSync\resortsync.db` (SQLite, WAL mode) |
+| Desktop settings | `%LocalAppData%\ResortSync\settings.json` |
+| Android database | `./files/ResortSync/resortsync.db` (app-private) |
+| Android settings | `./files/ResortSync/settings.json` (app-private) |
 | CSV exports | Chosen by the user via save dialog |
+| Cloud | Firebase Firestore `prpms-7d462` — collections `bookings`, `guests`, `payments`, `addons`, `booking_addons`, `settings` (doc id `app`) |
 
 ## Credits
 
 **Created by Terelle Sarmiento.**
 
-Built with .NET 8, WPF, Entity Framework Core, MaterialDesignInXAML
-(Material Design Icons community), CommunityToolkit.Mvvm, and Inno Setup.
+Built with .NET 8, WPF, .NET MAUI, Entity Framework Core, MaterialDesignInXAML
+(Material Design Icons community), CommunityToolkit.Mvvm, Firebase (Auth + Firestore REST),
+and Inno Setup.
 
 ## License
 

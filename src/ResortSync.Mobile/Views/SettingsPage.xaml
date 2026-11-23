@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResortSync.Mobile.Views.SettingsPage"
+             Title="Settings">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+
+            <!-- Appearance -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="APPEARANCE" />
+                    <Label FontSize="13" TextColor="#212121" Text="Theme" />
+                    <Picker x:Name="ThemePicker" />
+                    <Label FontSize="11" TextColor="#777777" Text="&quot;System&quot; follows the device light/dark preference." />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Resort identity -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="RESORT IDENTITY" />
+                    <Label FontSize="13" TextColor="#212121" Text="Resort name (printed on receipts)" />
+                    <Entry x:Name="ResortNameEntry" Placeholder="Seaside Paradise Resort" TextColor="#212121" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Booking defaults -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="BOOKING &amp; PAYMENT DEFAULTS" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Downpayment (% of total)" />
+                            <Entry x:Name="DownpaymentEntry"
+                                   Keyboard="Numeric"
+                                   Placeholder="50"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Extra guest rate (₱)" />
+                            <Entry x:Name="ExtraRateEntry"
+                                   Keyboard="Numeric"
+                                   Placeholder="300"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Default base guests" />
+                            <Entry x:Name="BaseGuestsEntry"
+                                   Keyboard="Numeric"
+                                   Placeholder="2"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label FontSize="11"
+                           TextColor="#777777"
+                           Text="Applies to bookings created from now on; existing bookings keep their snapshot amounts." />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Cloud sync (fields persisted now; sync engine wires in Phase 6) -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="CLOUD SYNC (FIRESTORE)" />
+
+                    <HorizontalStackLayout Spacing="8">
+                        <CheckBox x:Name="SyncEnabledCheck" />
+                        <Label FontSize="13"
+                               TextColor="#212121"
+                               VerticalOptions="Center"
+                               Text="Enable cloud sync (two-way, with the desktop database)" />
+                    </HorizontalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Firebase API key" />
+                            <Entry x:Name="ApiKeyEntry"
+                                   Placeholder="AIza."
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Project ID" />
+                            <Entry x:Name="ProjectIdEntry"
+                                   Placeholder="prpms-xxxxxx"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Sync account (email)" />
+                            <Entry x:Name="EmailEntry"
+                                   Placeholder="owner@example.com"
+                                   Keyboard="Email"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label FontSize="13" TextColor="#212121" Text="Password" />
+                            <Entry x:Name="PasswordEntry"
+                                   IsPassword="True"
+                                   TextColor="#212121" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label x:Name="CloudStatusLabel"
+                           FontSize="12"
+                           TextColor="#555555"
+                           Text="Cloud sync is off." />
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Button x:Name="SyncNowButton"
+                                Text="Sync Now"
+                                Clicked="OnSyncNowClicked"
+                                BackgroundColor="#00695C"
+                                TextColor="White"
+                                Padding="20,8" />
+                        <Button x:Name="SaveButton"
+                                Text="Save Settings"
+                                Clicked="OnSaveClicked"
+                                BackgroundColor="White"
+                                TextColor="#00695C"
+                                Padding="20,8" />
+                    </HorizontalStackLayout>
+
+                    <Label FontSize="11"
+                           TextColor="#777777"
+                           Text="Sync runs automatically every 60 seconds while enabled. Data last-write-wins by timestamp; hard deletes propagate as tombstones." />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- About -->
+            <VerticalStackLayout Spacing="2" Padding="0,8,0,16" Opacity="0.65">
+                <Label FontSize="11" TextColor="#212121" Text="PRPMS v1.0 - Private Resort Payment Monitoring System" />
+                <Label FontSize="11" TextColor="#212121" Text="Database: local SQLite (ResortSync/resortsync.db)" />
+                <Label FontSize="11" TextColor="#212121" Text="Created by Terelle Sarmiento" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

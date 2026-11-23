@@ -1,4 +1,4 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Threading;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using ResortSync.Constants;
 using ResortSync.Data;
 using ResortSync.Services;
+using ResortSync.Sync;
 using ResortSync.ViewModels;
 using ResortSync.Views;
 
@@ -87,12 +88,19 @@ public partial class App : Application
         services.AddSingleton<IDashboardInvalidator>(sp => sp.GetRequiredService<DashboardInvalidator>());
         services.AddSingleton<INavigationService, NavigationService>();
 
+        // ── Cloud sync ───────────────────────────────────────────────────────
+        services.AddSingleton<IFirebaseAuth, FirebaseAuthClient>();
+        services.AddSingleton<IFirestoreTransport, FirestoreRestClient>();
+        services.AddSingleton<SyncEngine>();
+        services.AddSingleton<SyncCoordinator>();
+
         // ── Shell ────────────────────────────────────────────────────────────
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<MainWindow>();
 
         // ── Background workers ───────────────────────────────────────────────
         services.AddHostedService<BookingExpiryService>();
+        services.AddHostedService<SyncWorker>();
     }
 
     /// <summary>

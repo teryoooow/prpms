@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ResortSync.Services;
@@ -8,7 +8,7 @@ namespace ResortSync.ViewModels;
 /// <summary>
 /// Cross-booking payment ledger: filter by method/type/date/search, export CSV.
 /// </summary>
-public partial class PaymentsViewModel : ViewModelBase, INavigationAware
+public partial class PaymentsViewModel : ViewModelBase, INavigationAware, IRefreshable
 {
     private readonly IPaymentService _paymentService;
     private readonly IReceiptService _receiptService;
@@ -56,6 +56,8 @@ public partial class PaymentsViewModel : ViewModelBase, INavigationAware
         _navigation = navigation;
         Title = "Payments";
     }
+
+    Task IRefreshable.RefreshAsync() => RefreshCommand.ExecuteAsync(null);
 
     public override Task OnNavigatedToAsync(object? parameter = null)
         => RunBusyAsync(LoadAsync);

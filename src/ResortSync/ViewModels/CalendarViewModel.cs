@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ResortSync.Models;
@@ -65,7 +65,7 @@ public partial class CalendarDayCell : ObservableObject
 /// Pending (amber) or Complete (brown); cancelled/expired bookings are hidden
 /// because they release their dates. Clicking a date lists it on the right.
 /// </summary>
-public partial class CalendarViewModel : ViewModelBase, INavigationAware
+public partial class CalendarViewModel : ViewModelBase, INavigationAware, IRefreshable
 {
     private readonly IBookingService _bookingService;
     private readonly INavigationService _navigation;
@@ -99,6 +99,8 @@ public partial class CalendarViewModel : ViewModelBase, INavigationAware
         _navigation = navigation;
         Title = "Booking Calendar";
     }
+
+    Task IRefreshable.RefreshAsync() => RefreshCommand.ExecuteAsync(null);
 
     public override async Task OnNavigatedToAsync(object? parameter = null)
         => await RunBusyAsync(async () =>

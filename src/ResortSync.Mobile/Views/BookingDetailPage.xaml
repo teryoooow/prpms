@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ResortSync.Mobile.Views"
+             x:Class="ResortSync.Mobile.Views.BookingDetailPage"
+             Title="Booking">
+
+    <ContentPage.Resources>
+        <views:StatusColorConverter x:Key="StatusColor" />
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Clicked="OnEditClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="12">
+
+            <!-- Header -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="6">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label x:Name="IdLabel"
+                               Grid.Column="0"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#212121"
+                               Text="#—" />
+                        <Label x:Name="StatusLabel"
+                               Grid.Column="1"
+                               FontSize="13"
+                               TextColor="White"
+                               Padding="10,4"
+                               Text="—" />
+                    </Grid>
+                    <Label x:Name="GuestLabel"
+                           FontSize="17"
+                           TextColor="#212121"
+                           Text="—" />
+                    <Label x:Name="ContactLabel"
+                           FontSize="13"
+                           TextColor="#777777"
+                           Text="" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Stay -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="6">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="STAY" />
+                    <Label x:Name="DatesLabel" FontSize="14" TextColor="#212121" Text="—" />
+                    <Label x:Name="TypeLabel" FontSize="14" TextColor="#212121" Text="—" />
+                    <Label x:Name="GuestsLabel" FontSize="14" TextColor="#212121" Text="—" />
+                    <Label x:Name="DeadlineLabel" FontSize="12" TextColor="#777777" Text="" />
+                    <Label x:Name="NotesLabel" FontSize="13" TextColor="#555555" Text="" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Money -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="6">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="PAYMENT SUMMARY" />
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                        <Label Grid.Row="0" Text="Total" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="TotalLabel" FontSize="14" TextColor="#212121" Text="—" />
+                        <Label Grid.Row="1" Text="Deposit required" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Row="1" Grid.Column="1" x:Name="DepositLabel" FontSize="14" TextColor="#212121" Text="—" />
+                        <Label Grid.Row="2" Text="Paid" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Row="2" Grid.Column="1" x:Name="PaidLabel" FontSize="14" TextColor="#212121" Text="—" />
+                        <Label Grid.Row="3" Text="Remaining balance" FontSize="15" FontAttributes="Bold" TextColor="#212121" />
+                        <Label Grid.Row="3" Grid.Column="1" x:Name="BalanceLabel" FontSize="15" FontAttributes="Bold" Text="—" />
+                    </Grid>
+                    <Button x:Name="RecordPaymentButton"
+                            Text="Record payment"
+                            Clicked="OnRecordPaymentClicked"
+                            BackgroundColor="#00695C"
+                            TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Add-ons -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="4">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="ADD-ONS" />
+                    <VerticalStackLayout x:Name="AddonsStack" Spacing="4" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Payments -->
+            <Border Padding="14"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="PAYMENTS" />
+                    <VerticalStackLayout x:Name="PaymentsStack" Spacing="8" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Lifecycle actions -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="8" RowSpacing="8">
+                <Button Grid.Row="0" Grid.Column="0" Text="Mark completed" Clicked="OnMarkCompletedClicked" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Cancel booking" Clicked="OnCancelClicked" />
+                <Button Grid.Row="1" Grid.Column="0" Text="Reopen" Clicked="OnReopenClicked" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

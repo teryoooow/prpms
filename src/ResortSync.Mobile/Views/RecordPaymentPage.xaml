@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResortSync.Mobile.Views.RecordPaymentPage"
+             Title="Record payment">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="OnCancelClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+
+            <Label x:Name="HeadingLabel"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   Text="—" />
+
+            <Label Text="Amount (₱)" FontSize="13" />
+            <Entry x:Name="AmountEntry"
+                   Keyboard="Numeric"
+                   Placeholder="0.00" />
+
+            <Label Text="Type" FontSize="13" />
+            <Picker x:Name="TypePicker" />
+
+            <Label Text="Method" FontSize="13" />
+            <Picker x:Name="MethodPicker" />
+
+            <Label Text="Date" FontSize="13" />
+            <DatePicker x:Name="DatePicker" />
+
+            <Label Text="Reference number (optional)" FontSize="13" />
+            <Entry x:Name="ReferenceEntry" Placeholder="GCash / Maya / bank trace no." />
+
+            <Label Text="Notes (optional)" FontSize="13" />
+            <Entry x:Name="NotesEntry" Placeholder="—" />
+
+            <Button x:Name="SaveButton"
+                    Text="Save payment"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#00695C"
+                    TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

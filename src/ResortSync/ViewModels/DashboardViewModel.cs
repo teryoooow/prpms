@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ResortSync.Models;
@@ -9,7 +9,7 @@ namespace ResortSync.ViewModels;
 /// <summary>
 /// Landing page: four stat cards + live downpayment-expiry alerts.
 /// </summary>
-public partial class DashboardViewModel : ViewModelBase, INavigationAware
+public partial class DashboardViewModel : ViewModelBase, INavigationAware, IRefreshable
 {
     private readonly IDashboardService _dashboard;
     private readonly INavigationService _navigation;
@@ -30,6 +30,8 @@ public partial class DashboardViewModel : ViewModelBase, INavigationAware
         _navigation = navigation;
         Title = "Dashboard";
     }
+
+    Task IRefreshable.RefreshAsync() => ReloadCommand.ExecuteAsync(null);
 
     public override async Task OnNavigatedToAsync(object? parameter = null)
         => await ReloadAsync();

@@ -37,16 +37,18 @@ public partial class MainViewModel : ViewModelBase
             StatusMessage = _navigation.Current?.Title ?? string.Empty;
         };
 
-        // The auto-expiry worker nudges us so the dashboard updates in place.
-        // The worker runs on the thread pool → marshal onto the dispatcher before
-        // touching any ObservableCollection-bound state.
+        // Background workers (cloud sync, auto-expiry) nudge us so the open
+        // page updates in place. The workers run on the thread pool → marshal
+        // onto the dispatcher before touching any bound state. Only data pages
+        // implement IRefreshable; editable pages (Settings, booking form) are
+        // never reloaded from under the operator.
         invalidator.RefreshRequested += (_, _) =>
         {
             System.Windows.Application.Current?.Dispatcher.InvokeAsync(() =>
             {
-                if (CurrentViewModel is DashboardViewModel dashboard)
+                if (CurrentViewModel is IRefreshable refreshable)
                 {
-                    _ = dashboard.ReloadCommand.ExecuteAsync(null);
+                    _ = refreshable.RefreshAsync();
                 }
             });
         };

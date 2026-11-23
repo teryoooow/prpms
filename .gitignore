@@ -1,4 +1,4 @@
-# Build results
+﻿# Build results
 [Bb]in/
 [Oo]bj/
 [Oo]ut/
@@ -26,3 +26,11 @@ installer/Output/
 *.db
 *.db-shm
 *.db-wal
+
+# Android signing (never commit keystores or passwords)
+installer/keystore/
+*.keystore
+*.jks
+*.p12
+*.pfx
+google-services.json

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <!-- Same root namespace as the desktop app so using-statements stay identical. -->
+    <RootNamespace>ResortSync</RootNamespace>
+    <AssemblyName>ResortSync.Core</AssemblyName>
+    <Product>PRPMS</Product>
+    <Company>Terelle Sarmiento</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Tests exercise internal sync plumbing (SyncApplyMode) -->
+    <InternalsVisibleTo Include="ResortSync.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- EF Core 8 SQLite provider (shared by desktop + Android) -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <!-- BackgroundService (expiry worker) + logging/DI abstractions used by services -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

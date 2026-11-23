@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ResortSync.Models;assembly=ResortSync.Core"
+             x:Class="ResortSync.Mobile.Views.NewBookingPage"
+             Title="New booking">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="12">
+
+            <!-- Guest -->
+            <Border Padding="14" StrokeThickness="1" Stroke="#E0E0E0" BackgroundColor="White" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="GUEST" />
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <SearchBar x:Name="GuestSearch"
+                                   Grid.Column="0"
+                                   Placeholder="Search returning guest (name / phone)"
+                                   TextChanged="OnGuestSearchChanged" />
+                        <Button Grid.Column="1"
+                                Text="Clear"
+                                Clicked="OnClearGuestClicked"
+                                FontSize="13"
+                                HeightRequest="40" />
+                    </Grid>
+
+                    <CollectionView x:Name="SuggestionsList"
+                                    HeightRequest="110"
+                                    IsVisible="False"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Guest">
+                                <Border Padding="10,8" StrokeThickness="1" Stroke="#EEEEEE" BackgroundColor="#FAFAFA">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnSuggestionTapped" />
+                                    </Border.GestureRecognizers>
+                                    <VerticalStackLayout>
+                                        <Label FontSize="14" FontAttributes="Bold" TextColor="#212121" Text="{Binding FullName}" />
+                                        <Label FontSize="12" TextColor="#777777" Text="{Binding Phone}" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Label x:Name="ReturningBadge"
+                           FontSize="12"
+                           TextColor="#2E7D32"
+                           IsVisible="False"
+                           Text="" />
+
+                    <Label Text="Full name *" FontSize="12" TextColor="#555555" />
+                    <Entry x:Name="NameEntry" Placeholder="Juan Dela Cruz" TextChanged="OnFormFieldChanged" />
+
+                    <Label Text="Phone" FontSize="12" TextColor="#555555" />
+                    <Entry x:Name="PhoneEntry" Placeholder="09xx xxx xxxx" Keyboard="Telephone" TextChanged="OnFormFieldChanged" />
+
+                    <Label Text="Email" FontSize="12" TextColor="#555555" />
+                    <Entry x:Name="EmailEntry" Placeholder="Optional" Keyboard="Email" TextChanged="OnFormFieldChanged" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="ID type" FontSize="12" TextColor="#555555" />
+                            <Entry x:Name="IdTypeEntry" Placeholder="National ID, License..." />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="ID number" FontSize="12" TextColor="#555555" />
+                            <Entry x:Name="IdNumberEntry" Placeholder="Optional" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label Text="Notes" FontSize="12" TextColor="#555555" />
+                    <Entry x:Name="GuestNotesEntry" Placeholder="Optional" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Stay -->
+            <Border Padding="14" StrokeThickness="1" Stroke="#E0E0E0" BackgroundColor="White" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="STAY" />
+
+                    <Label Text="Type" FontSize="12" TextColor="#555555" />
+                    <Picker x:Name="TypePicker" SelectedIndexChanged="OnStayTypeChanged" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Check-in *" FontSize="12" TextColor="#555555" />
+                            <DatePicker x:Name="CheckInPicker" DateSelected="OnDatesChanged" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Check-out" FontSize="12" TextColor="#555555" />
+                            <DatePicker x:Name="CheckOutPicker" DateSelected="OnDatesChanged" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label x:Name="ConflictLabel"
+                           FontSize="13"
+                           TextColor="#C62828"
+                           IsVisible="False"
+                           Text="" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Occupancy & pricing inputs -->
+            <Border Padding="14" StrokeThickness="1" Stroke="#E0E0E0" BackgroundColor="White" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="OCCUPANCY &amp; PRICING" />
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <Label Grid.Column="0" Text="Base guests (included)" FontSize="14" TextColor="#212121" VerticalOptions="Center" />
+                        <Stepper x:Name="BaseGuestsStepper"
+                                 Grid.Column="1"
+                                 Minimum="1" Maximum="20" Increment="1" Value="2"
+                                 ValueChanged="OnStepperChanged" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <Label Grid.Column="0" Text="Additional guests" FontSize="14" TextColor="#212121" VerticalOptions="Center" />
+                        <Stepper x:Name="AdditionalStepper"
+                                 Grid.Column="1"
+                                 Minimum="0" Maximum="50" Increment="1" Value="0"
+                                 ValueChanged="OnStepperChanged" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Rate per extra guest (₱)" FontSize="12" TextColor="#555555" />
+                            <Entry x:Name="ExtraRateEntry" Placeholder="0.00" TextChanged="OnFormFieldChanged" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Base amount / package fee (₱)" FontSize="12" TextColor="#555555" />
+                            <Entry x:Name="BaseAmountEntry" Placeholder="0.00" TextChanged="OnFormFieldChanged" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Add-ons -->
+            <Border Padding="14" StrokeThickness="1" Stroke="#E0E0E0" BackgroundColor="White" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="8">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="ADD-ONS" />
+                    <VerticalStackLayout x:Name="AddonsStack" Spacing="8" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Live summary -->
+            <Border Padding="14" StrokeThickness="1" Stroke="#B2DFDB" BackgroundColor="#E0F2F1" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="5">
+                    <Label FontSize="12" FontAttributes="Bold" TextColor="#00695C" Text="SUMMARY" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" x:Name="ExtraChargeCaption" Text="Extra guests" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Column="1" x:Name="ExtraChargeLabel" Text="₱0.00" FontSize="14" TextColor="#212121" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Add-ons" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Column="1" x:Name="AddonsTotalLabel" Text="₱0.00" FontSize="14" TextColor="#212121" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="#B2DFDB" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Total" FontSize="16" FontAttributes="Bold" TextColor="#212121" />
+                        <Label Grid.Column="1" x:Name="TotalLabel" Text="₱0.00" FontSize="16" FontAttributes="Bold" TextColor="#212121" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" x:Name="DepositCaption" Text="Required downpayment" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Column="1" x:Name="DepositLabel" Text="₱0.00" FontSize="14" TextColor="#212121" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Remaining balance" FontSize="14" TextColor="#212121" />
+                        <Label Grid.Column="1" x:Name="RemainingLabel" Text="₱0.00" FontSize="14" TextColor="#212121" />
+                    </Grid>
+                    <Label x:Name="DeadlineCaption"
+                           FontSize="12"
+                           TextColor="#777777"
+                           Text="" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button x:Name="SaveButton"
+                    Text="Save booking"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#00695C"
+                    TextColor="White" />
+            <Button Text="Cancel"
+                    Clicked="OnCancelClicked"
+                    BackgroundColor="#EEEEEE"
+                    TextColor="#333333" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

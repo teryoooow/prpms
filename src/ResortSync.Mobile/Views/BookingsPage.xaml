@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ResortSync.Models;assembly=ResortSync.Core"
+             xmlns:views="clr-namespace:ResortSync.Mobile.Views"
+             x:Class="ResortSync.Mobile.Views.BookingsPage"
+             Title="Bookings">
+
+    <ContentPage.Resources>
+        <views:StatusColorConverter x:Key="StatusColor" />
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="＋ New" Clicked="OnNewBookingClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto" RowSpacing="8" Padding="12">
+
+        <!-- Search -->
+        <SearchBar x:Name="SearchEntry"
+                   Grid.Row="0"
+                   Placeholder="Search guest, phone, or #booking"
+                   TextChanged="OnSearchTextChanged" />
+
+        <!-- Status filter -->
+        <Picker x:Name="StatusPicker"
+                Grid.Row="1"
+                Title="Status"
+                HorizontalOptions="Fill"
+                SelectedIndexChanged="OnStatusSelectedChanged" />
+
+        <!-- List -->
+        <CollectionView x:Name="BookingsList"
+                        Grid.Row="2"
+                        SelectionMode="None"
+                        EmptyView="No bookings match. Tap ＋ New to create one.">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Booking">
+                    <Border Padding="12,10"
+                            Margin="0,0,0,8"
+                            StrokeThickness="1"
+                            Stroke="#E0E0E0"
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 10">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBookingTapped" />
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout Spacing="4">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                <Label Grid.Column="0"
+                                       FontSize="13"
+                                       TextColor="#777777"
+                                       Text="{Binding Id, StringFormat='#{0}'}" />
+                                <Label Grid.Column="1"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#212121"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Guest.FullName}" />
+                                <Label Grid.Column="2"
+                                       FontSize="12"
+                                       TextColor="White"
+                                       Padding="8,2"
+                                       BackgroundColor="{Binding Status, Converter={StaticResource StatusColor}}"
+                                       Text="{Binding Status}" />
+                            </Grid>
+
+                            <Label FontSize="13"
+                                   TextColor="#555555"
+                                   Text="{Binding StayLabel}" />
+
+                            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
+                                <Label Grid.Column="0"
+                                       FontSize="13"
+                                       TextColor="#777777"
+                                       Text="{Binding CheckInDate, StringFormat='in {0:MMM dd, yyyy}'}" />
+                                <Label Grid.Column="1"
+                                       FontSize="13"
+                                       TextColor="#777777"
+                                       Text="{Binding TotalAmount, StringFormat='₱{0:N2}'}" />
+                                <Label Grid.Column="2"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="#C62828"
+                                       Text="{Binding RemainingBalance, StringFormat='bal ₱{0:N2}'}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Count -->
+        <Label x:Name="CountLabel"
+               Grid.Row="3"
+               FontSize="12"
+               Opacity="0.65"
+               Text="0 bookings" />
+    </Grid>
+</ContentPage>

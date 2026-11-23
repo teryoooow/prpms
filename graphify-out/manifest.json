@@ -1,8 +1,8 @@
 {
   "ResortSync.sln": {
-    "mtime": 1792998468.0400608,
-    "seen": 1793001906.8829284,
-    "ast_hash": "9a3fa80d08f2864d96e8b5999fc7ffd1",
+    "mtime": 1795139816.9908545,
+    "seen": 1795140732.4315882,
+    "ast_hash": "0739b9c15415eeb00ec6a1e1ece67b21",
     "semantic_hash": ""
   },
   "src/ResortSync/App.xaml": {
@@ -12,15 +12,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/App.xaml.cs": {
-    "mtime": 1793145685.0741477,
-    "seen": 1793148123.308377,
-    "ast_hash": "51fc55f800037b0d1ec1ceb38655b69b",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Constants/AppConstants.cs": {
-    "mtime": 1792998545.1532962,
-    "seen": 1793001906.8829284,
-    "ast_hash": "3433e396337fb1ce855a50f184b7a189",
+    "mtime": 1795146907.1979303,
+    "seen": 1795149126.699875,
+    "ast_hash": "7fd674333df84090b109985dd2a3b561",
     "semantic_hash": ""
   },
   "src/ResortSync/Converters/Converters.cs": {
@@ -29,76 +23,10 @@
     "ast_hash": "defb7ef1a24007e07eda06fcb0839f43",
     "semantic_hash": ""
   },
-  "src/ResortSync/Data/DbInitializer.cs": {
-    "mtime": 1792998565.5255454,
-    "seen": 1793001906.8829284,
-    "ast_hash": "d79ca3899d5bd4d2be85d38e4e557258",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Data/ResortDbContext.cs": {
-    "mtime": 1792998557.990481,
-    "seen": 1793001906.8829284,
-    "ast_hash": "2117ee2d5003030b9f276f1d1582dd97",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/Addon.cs": {
-    "mtime": 1792998529.3119051,
-    "seen": 1793001906.8829284,
-    "ast_hash": "5b0fc8df543288bd27eb4735a2f7ce8f",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/Booking.cs": {
-    "mtime": 1792998511.0442028,
-    "seen": 1793001906.8829284,
-    "ast_hash": "d6abd3edd03d04050ee460e67a26b7fe",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/BookingAddon.cs": {
-    "mtime": 1792998531.8385935,
-    "seen": 1793001906.8829284,
-    "ast_hash": "ea2c947e4337c274ca8d2d2097314529",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/Enums.cs": {
-    "mtime": 1792998486.1286726,
-    "seen": 1793001906.8829284,
-    "ast_hash": "f76c35fda28e78caede616a9d9f2bd79",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/Guest.cs": {
-    "mtime": 1792998491.6578174,
-    "seen": 1793001906.8829284,
-    "ast_hash": "ec452dfcad93e245a5c32eff920d0cd4",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Models/PaymentTransaction.cs": {
-    "mtime": 1792998527.1273534,
-    "seen": 1793001906.8829284,
-    "ast_hash": "7fc242c3d5171b48f60b099fa943153d",
-    "semantic_hash": ""
-  },
   "src/ResortSync/ResortSync.csproj": {
-    "mtime": 1793167290.2145586,
-    "seen": 1793167388.6751313,
-    "ast_hash": "2d508a92249b442273a47edcc6c5eb12",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Services/BookingExpiryService.cs": {
-    "mtime": 1793000528.3843188,
-    "seen": 1793001906.8829284,
-    "ast_hash": "1755d732feef1a20963ba667641549a4",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Services/BookingService.cs": {
-    "mtime": 1793065845.668796,
-    "seen": 1793066009.9244244,
-    "ast_hash": "2bd93887571f0de951a3fe33dcb8ed5f",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Services/DashboardService.cs": {
-    "mtime": 1793000528.445644,
-    "seen": 1793001906.8829284,
-    "ast_hash": "d7d438acd4fea18c4e66073b0f95b595",
+    "mtime": 1795401569.42818,
+    "seen": 1795401614.0831995,
+    "ast_hash": "9590c1bf36816506071826d48e298e52",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/DialogService.cs": {
@@ -119,22 +47,10 @@
     "ast_hash": "1921f59139da6ed872951b06f6673a64",
     "semantic_hash": ""
   },
-  "src/ResortSync/Services/PaymentService.cs": {
-    "mtime": 1793059453.1828978,
-    "seen": 1793059624.8258984,
-    "ast_hash": "df1e513be0a00bbe761bbde0359c55fd",
-    "semantic_hash": ""
-  },
   "src/ResortSync/Services/ReceiptService.cs": {
     "mtime": 1793145710.5061276,
     "seen": 1793148123.308377,
     "ast_hash": "da5c31f685b4e4ff803b21b6672e5857",
-    "semantic_hash": ""
-  },
-  "src/ResortSync/Services/SettingsService.cs": {
-    "mtime": 1793145712.2836926,
-    "seen": 1793148123.308377,
-    "ast_hash": "0dcc43a87d685f48caee2aea20552002",
     "semantic_hash": ""
   },
   "src/ResortSync/Services/ThemeService.cs": {
@@ -150,21 +66,21 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/BookingsViewModel.cs": {
-    "mtime": 1792999172.1571553,
-    "seen": 1793001906.8829284,
-    "ast_hash": "e5fee14655c13354a4adb1de7fe1c446",
+    "mtime": 1795146871.569795,
+    "seen": 1795149126.699875,
+    "ast_hash": "01b6b441bc84245c3949083e7a9e242b",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/DashboardViewModel.cs": {
-    "mtime": 1792998900.74613,
-    "seen": 1793001906.8829284,
-    "ast_hash": "29742309c702d5799a5028d2f281fce4",
+    "mtime": 1795146874.9881947,
+    "seen": 1795149126.699875,
+    "ast_hash": "a0b8fd0e78ca5f9ec4a6b0f588aa8e0d",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/MainViewModel.cs": {
-    "mtime": 1793145682.4406922,
-    "seen": 1793148123.308377,
-    "ast_hash": "7c49e3a90a6edf57393908dcefde4d12",
+    "mtime": 1795133968.6149027,
+    "seen": 1795136619.0681295,
+    "ast_hash": "05d2b124a5965635e5d126f7bb8f221c",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/PaymentDialogViewModel.cs": {
@@ -174,9 +90,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/PaymentsViewModel.cs": {
-    "mtime": 1793145711.3165016,
-    "seen": 1793148123.308377,
-    "ast_hash": "92c95c34927863dc8fb3a6db646378c8",
+    "mtime": 1795146877.8983915,
+    "seen": 1795149126.699875,
+    "ast_hash": "0c8f9b116551fd0205b6aa8b1b5d4efb",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/ReceiptViewModel.cs": {
@@ -186,9 +102,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/SettingsViewModel.cs": {
-    "mtime": 1793145713.373947,
-    "seen": 1793148123.308377,
-    "ast_hash": "9e12ff5155ac5703fa50854c0a14fd71",
+    "mtime": 1795146879.7048254,
+    "seen": 1795149126.699875,
+    "ast_hash": "c03c338fcc00350632ed5b6a011e5d80",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/ViewModelBase.cs": {
@@ -282,9 +198,9 @@
     "semantic_hash": ""
   },
   "src/ResortSync/Views/SettingsView.xaml": {
-    "mtime": 1793145707.8226712,
-    "seen": 1793148123.308377,
-    "ast_hash": "e83e083c650a09356519442a549a0854",
+    "mtime": 1795146904.8526194,
+    "seen": 1795149126.7009337,
+    "ast_hash": "77580d30294d7aa50a9fb2ff6d41925b",
     "semantic_hash": ""
   },
   "src/ResortSync/Views/SettingsView.xaml.cs": {
@@ -306,15 +222,15 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793167287.5384164,
-    "seen": 1793167388.6751313,
-    "ast_hash": "656a29a06bd0ade8a73481d2a01feff4",
+    "mtime": 1795401582.16546,
+    "seen": 1795401614.0831995,
+    "ast_hash": "df9d7e31a27318e5cd44f33f10cd4a1c",
     "semantic_hash": ""
   },
   "src/ResortSync/ViewModels/CalendarViewModel.cs": {
-    "mtime": 1793166622.598916,
-    "seen": 1793166862.9621887,
-    "ast_hash": "1da9485c95a0166a95d5de4f40407b62",
+    "mtime": 1795146874.2428389,
+    "seen": 1795149126.699875,
+    "ast_hash": "dd64867d9004fa13990a2ecdde0a830f",
     "semantic_hash": ""
   },
   "src/ResortSync/Views/CalendarView.xaml": {
@@ -327,6 +243,444 @@
     "mtime": 1793166650.7217445,
     "seen": 1793166862.9621887,
     "ast_hash": "7422805592c8920c004f9a4878aeab38",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Constants/AppConstants.cs": {
+    "mtime": 1795133891.5628736,
+    "seen": 1795136619.0681295,
+    "ast_hash": "ce8b07133c5b2a1bc878f197bbd5712b",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Data/DbInitializer.cs": {
+    "mtime": 1795075749.2835531,
+    "seen": 1795076620.3576622,
+    "ast_hash": "87be5de2f8e9985a704523cf50c90f4c",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Data/ResortDbContext.cs": {
+    "mtime": 1795146909.7258875,
+    "seen": 1795149126.699875,
+    "ast_hash": "b279500947eba54db5eea72f75b79a5a",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/Addon.cs": {
+    "mtime": 1795146911.5394025,
+    "seen": 1795149126.699875,
+    "ast_hash": "e74f47f78aaa95aad8ab1d9a952dd6af",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/Booking.cs": {
+    "mtime": 1795146912.6332595,
+    "seen": 1795149126.699875,
+    "ast_hash": "ec75c2e263b694d8983e7e20e916a14a",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/BookingAddon.cs": {
+    "mtime": 1795146912.8388567,
+    "seen": 1795149126.699875,
+    "ast_hash": "66bf67ee260ee86444542fb45dd2dc74",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/Enums.cs": {
+    "mtime": 1792998486.1286726,
+    "seen": 1795075183.4899616,
+    "ast_hash": "f76c35fda28e78caede616a9d9f2bd79",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/Guest.cs": {
+    "mtime": 1795146913.4830437,
+    "seen": 1795149126.699875,
+    "ast_hash": "7b30b89e2ba018a893f101dd695422a2",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/PaymentTransaction.cs": {
+    "mtime": 1795146914.1073925,
+    "seen": 1795149126.699875,
+    "ast_hash": "988bdc1a102f2f973db6a85a73bc1e8a",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/ResortSync.Core.csproj": {
+    "mtime": 1795076074.342816,
+    "seen": 1795076620.3576622,
+    "ast_hash": "1ace4a42003d978dd250928e4cfef811",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Services/BookingExpiryService.cs": {
+    "mtime": 1793000528.3843188,
+    "seen": 1795075183.4899616,
+    "ast_hash": "1755d732feef1a20963ba667641549a4",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Services/BookingService.cs": {
+    "mtime": 1795076596.5922408,
+    "seen": 1795076620.3586645,
+    "ast_hash": "7a87a11f6df1e80a19ddb7fe3c0b7788",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Services/DashboardService.cs": {
+    "mtime": 1793000528.445644,
+    "seen": 1795075183.4899616,
+    "ast_hash": "d7d438acd4fea18c4e66073b0f95b595",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Services/PaymentService.cs": {
+    "mtime": 1793059453.1828978,
+    "seen": 1795075183.4899616,
+    "ast_hash": "df1e513be0a00bbe761bbde0359c55fd",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Services/SettingsService.cs": {
+    "mtime": 1795077107.990734,
+    "seen": 1795079551.5657554,
+    "ast_hash": "03acd3ddba92c1d6b414874169409248",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Data/SyncSchema.cs": {
+    "mtime": 1795075722.8708146,
+    "seen": 1795076620.3576622,
+    "ast_hash": "70aab5dd8bfb53677ebdff5b8d82204d",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Data/SyncTables.cs": {
+    "mtime": 1795075451.2864256,
+    "seen": 1795076620.3576622,
+    "ast_hash": "cabbb57d681093e4ee2e2deab7eaacba",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Models/ISyncable.cs": {
+    "mtime": 1795075532.0122304,
+    "seen": 1795076620.3576622,
+    "ast_hash": "7b7b228fc89826b06d3549fba0db8982",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/MigrationTests.cs": {
+    "mtime": 1795076139.2321017,
+    "seen": 1795076620.3682218,
+    "ast_hash": "ab4a04109abb713ef6b1ba60d334581f",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/ResortSync.Tests.csproj": {
+    "mtime": 1795075855.2022307,
+    "seen": 1795076620.3682218,
+    "ast_hash": "84eb98e8a3302b3f45d3bf7427f7c32b",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/SyncStampingTests.cs": {
+    "mtime": 1795076070.6606634,
+    "seen": 1795076620.3682218,
+    "ast_hash": "93cc9af97ae860c95b5e26ae1c02d22a",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/TestDb.cs": {
+    "mtime": 1795078908.1909761,
+    "seen": 1795079551.5657554,
+    "ast_hash": "88d8711bda47d4022812da23a45396af",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/DocMapper.cs": {
+    "mtime": 1795146923.9044707,
+    "seen": 1795149126.699875,
+    "ast_hash": "5f26fffbc8dcd5a5c0e25621c2d7b07e",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/FirebaseAuthClient.cs": {
+    "mtime": 1795077079.3693588,
+    "seen": 1795079551.5657554,
+    "ast_hash": "f6dec1e0c2aa1fc19528240ed21070e8",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/FirestoreRestClient.cs": {
+    "mtime": 1795151270.4056125,
+    "seen": 1795394425.9201653,
+    "ast_hash": "140a1b0e0fb72111442eface568baa8c",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/FirestoreValues.cs": {
+    "mtime": 1795146927.8703392,
+    "seen": 1795149126.699875,
+    "ast_hash": "ca574de32befafc3db667a83cac40590",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/IFirestoreTransport.cs": {
+    "mtime": 1795077047.974956,
+    "seen": 1795079551.5657554,
+    "ast_hash": "17d5bbe75b26f20688740770921ff121",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/SyncConfig.cs": {
+    "mtime": 1795078334.2473404,
+    "seen": 1795079551.5657554,
+    "ast_hash": "1274a0f59860e39acbb4bd87cc25fd99",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/SyncCoordinator.cs": {
+    "mtime": 1795133912.7148416,
+    "seen": 1795136619.0681295,
+    "ast_hash": "ba20c7df33597a7de8970646ebfbf9e0",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/SyncEngine.cs": {
+    "mtime": 1795394682.7140021,
+    "seen": 1795394991.6792028,
+    "ast_hash": "17d502943111ccd813e863715847162f",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/FakeFirestore.cs": {
+    "mtime": 1795146957.2588258,
+    "seen": 1795149126.7009337,
+    "ast_hash": "f175bea964c479c49ef1dd4962dbc398",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/SyncEngineTests.cs": {
+    "mtime": 1795079491.1219358,
+    "seen": 1795079551.5657554,
+    "ast_hash": "8c056171285fd4148f57b10b87a39ee0",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Core/Sync/SyncWorker.cs": {
+    "mtime": 1795133925.4368587,
+    "seen": 1795136619.0681295,
+    "ast_hash": "b0ed3a8aec39430030072924ae1d0a95",
+    "semantic_hash": ""
+  },
+  "src/ResortSync/Services/IRefreshable.cs": {
+    "mtime": 1795133934.2360778,
+    "seen": 1795136619.0681295,
+    "ast_hash": "c74779abc2157fec61c407c3e9b8ee88",
+    "semantic_hash": ""
+  },
+  "tests/ResortSync.Tests/SyncCoordinatorTests.cs": {
+    "mtime": 1795134188.444136,
+    "seen": 1795136619.0681295,
+    "ast_hash": "d94635604e818481ebd20b9a94c7b307",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/App.xaml": {
+    "mtime": 1795139495.5501819,
+    "seen": 1795140732.432588,
+    "ast_hash": "b2404c3bfd9dadb6b5cbc4c547d89f47",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/App.xaml.cs": {
+    "mtime": 1795150327.2661035,
+    "seen": 1795394425.9201653,
+    "ast_hash": "6d42f2928b311d4167db2e0764bbbc8d",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/AppShell.xaml": {
+    "mtime": 1795139609.3553286,
+    "seen": 1795140732.432588,
+    "ast_hash": "82076d93ac37a5efc878f835020e0924",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/AppShell.xaml.cs": {
+    "mtime": 1795141596.2953646,
+    "seen": 1795149126.699875,
+    "ast_hash": "272150ba53bd498e5e66b211b0e858a7",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/MauiProgram.cs": {
+    "mtime": 1795150322.859395,
+    "seen": 1795394425.9201653,
+    "ast_hash": "b44ee46c7f95e2a11871b99fc5fdabfd",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/Android/MainActivity.cs": {
+    "mtime": 1795139495.5061467,
+    "seen": 1795140732.432588,
+    "ast_hash": "5b84bd65aace43daa63381faea07f36c",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/Android/MainApplication.cs": {
+    "mtime": 1795139495.5071485,
+    "seen": 1795140732.432588,
+    "ast_hash": "e0cf280a742b4ca0cba75c7e18fde48a",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/MacCatalyst/AppDelegate.cs": {
+    "mtime": 1795139495.5274603,
+    "seen": 1795140732.432588,
+    "ast_hash": "909f23f910e9b92f82392a79d8f2676d",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/MacCatalyst/Program.cs": {
+    "mtime": 1795139495.536973,
+    "seen": 1795140732.432588,
+    "ast_hash": "4fd9f001ef4e8afabc836a3b6a221eb4",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/Tizen/Main.cs": {
+    "mtime": 1795139495.5396729,
+    "seen": 1795140732.432588,
+    "ast_hash": "56807acdc4ccc1972d9032c1c4765045",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/Windows/App.xaml": {
+    "mtime": 1795139495.5446768,
+    "seen": 1795140732.432588,
+    "ast_hash": "a39045d1888e778be1a5b79a06952901",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/Windows/App.xaml.cs": {
+    "mtime": 1795139495.5466743,
+    "seen": 1795140732.432588,
+    "ast_hash": "e85c9abf1831a5718d3e4384e2a0c033",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/iOS/AppDelegate.cs": {
+    "mtime": 1795139495.5235698,
+    "seen": 1795140732.432588,
+    "ast_hash": "909f23f910e9b92f82392a79d8f2676d",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Platforms/iOS/Program.cs": {
+    "mtime": 1795139495.524461,
+    "seen": 1795140732.432588,
+    "ast_hash": "4fd9f001ef4e8afabc836a3b6a221eb4",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Properties/launchSettings.json": {
+    "mtime": 1795139495.5476732,
+    "seen": 1795140732.432588,
+    "ast_hash": "836220c8be2d5322ad68c2a5c7538c2f",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/ResortSync.Mobile.csproj": {
+    "mtime": 1795139598.1685789,
+    "seen": 1795140732.432588,
+    "ast_hash": "7a2bb3ef075b10fbeb97b83e1182a806",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/Styles/Colors.xaml": {
+    "mtime": 1795139495.5783126,
+    "seen": 1795140732.432588,
+    "ast_hash": "421d6084d35bc1209d75b23cc1942c64",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/Styles/Styles.xaml": {
+    "mtime": 1795139495.591314,
+    "seen": 1795140732.432588,
+    "ast_hash": "df0a0fce50bc129a221f911ad65b3b6d",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/BookingsPage.xaml": {
+    "mtime": 1795145610.6847682,
+    "seen": 1795149126.699875,
+    "ast_hash": "da0fb9b012dea7731bd4004303107100",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/BookingsPage.xaml.cs": {
+    "mtime": 1795394917.1569462,
+    "seen": 1795394991.6792028,
+    "ast_hash": "3a64c179a2c90f0eb822e3c1a620718c",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/PaymentsPage.xaml": {
+    "mtime": 1795149895.4981773,
+    "seen": 1795150164.5832705,
+    "ast_hash": "c4c623dc48125375d0bafcd42c99fb36",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/PaymentsPage.xaml.cs": {
+    "mtime": 1795394924.1987371,
+    "seen": 1795394991.6792028,
+    "ast_hash": "6d6b7f01683cb8cae5a4b36516b221ba",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/SettingsPage.xaml": {
+    "mtime": 1795150352.401556,
+    "seen": 1795394425.9201653,
+    "ast_hash": "35df12d86908ed75e39d1ce7fb20aec3",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/SettingsPage.xaml.cs": {
+    "mtime": 1795150439.452329,
+    "seen": 1795394425.9201653,
+    "ast_hash": "8da605dc0f95ef49d8d156992eef42a9",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/Raw/AboutAssets.txt": {
+    "mtime": 1795139495.5667062,
+    "seen": 1795140732.432588,
+    "ast_hash": "f2a9b40b175b413ea2fc7421ee26c6a5",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/AppIcon/appicon.svg": {
+    "mtime": 1795139495.5491767,
+    "seen": 1795140732.432588,
+    "ast_hash": "5c7fce998bd02a44ecccee4b477919f8",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/AppIcon/appiconfg.svg": {
+    "mtime": 1795139495.5501819,
+    "seen": 1795140732.432588,
+    "ast_hash": "f90b41ec7837716bd7ed08c88114e060",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/Images/dotnet_bot.png": {
+    "mtime": 1795139495.5636992,
+    "seen": 1795140732.432588,
+    "ast_hash": "d8ce610c226a10e86b5063e4d97e15a7",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Resources/Splash/splash.svg": {
+    "mtime": 1795139495.569213,
+    "seen": 1795140732.432588,
+    "ast_hash": "f90b41ec7837716bd7ed08c88114e060",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/BookingDetailPage.xaml": {
+    "mtime": 1795148301.418532,
+    "seen": 1795149126.699875,
+    "ast_hash": "4c80c7b7b0d4eb0bbe8f106be2c7aeef",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/BookingDetailPage.xaml.cs": {
+    "mtime": 1795148812.8793569,
+    "seen": 1795149126.699875,
+    "ast_hash": "20a5a7be0d636cd8835a7ce1255ab963",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/NewBookingPage.xaml": {
+    "mtime": 1795145633.7009792,
+    "seen": 1795149126.699875,
+    "ast_hash": "2885139d896a950b59c1631722de926b",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/NewBookingPage.xaml.cs": {
+    "mtime": 1795145670.6021,
+    "seen": 1795149126.699875,
+    "ast_hash": "e785b757ceedf0ddefbbcfc44b47cb5b",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/RecordPaymentPage.xaml": {
+    "mtime": 1795141221.3913383,
+    "seen": 1795149126.699875,
+    "ast_hash": "5bb55d9bb28a213e003af2f75359cbf3",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/RecordPaymentPage.xaml.cs": {
+    "mtime": 1795142545.9729493,
+    "seen": 1795149126.699875,
+    "ast_hash": "45c75eed9ba93a7cf5587ebd19f20331",
+    "semantic_hash": ""
+  },
+  "src/ResortSync.Mobile/Views/StatusColorConverter.cs": {
+    "mtime": 1795140936.2465086,
+    "seen": 1795149126.699875,
+    "ast_hash": "4b7595be562db6f1ef0e3522fed0fd2f",
+    "semantic_hash": ""
+  },
+  "installer/build-apk.ps1": {
+    "mtime": 1795401597.3743846,
+    "seen": 1795401614.0822005,
+    "ast_hash": "c006515ed2df85889bde013d332469b3",
+    "semantic_hash": ""
+  },
+  ".opencode/package-lock.json": {
+    "mtime": 1793151622.184025,
+    "seen": 1795075183.4899616,
+    "ast_hash": "2e9cd73d80dce85ac6fc49984edc24b6",
     "semantic_hash": ""
   }
 }

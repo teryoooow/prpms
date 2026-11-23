@@ -9,7 +9,7 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>ResortSync</RootNamespace>
     <!-- Release version (installer + shell footer read from here) -->
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <!-- Product identity (display name + exe); code namespaces stay ResortSync -->
     <AssemblyName>PRPMS</AssemblyName>
     <Product>PRPMS</Product>
@@ -20,6 +20,11 @@
     <!-- Embedded Windows icon (also used by the installer) -->
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Shared domain: models, EF Core DbContext, booking/payment/pricing/expiry services -->
+    <ProjectReference Include="..\ResortSync.Core\ResortSync.Core.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <!-- MVVM source generators ([ObservableProperty], [RelayCommand]) -->

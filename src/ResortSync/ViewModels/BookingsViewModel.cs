@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ResortSync.Models;
@@ -10,7 +10,7 @@ namespace ResortSync.ViewModels;
 /// All Bookings: searchable/status-filtered grid + detail pane with payments,
 /// receipt printing, and lifecycle actions (confirm / complete / cancel).
 /// </summary>
-public partial class BookingsViewModel : ViewModelBase, INavigationAware
+public partial class BookingsViewModel : ViewModelBase, INavigationAware, IRefreshable
 {
     private readonly IBookingService _bookingService;
     private readonly IPaymentService _paymentService;
@@ -59,6 +59,8 @@ public partial class BookingsViewModel : ViewModelBase, INavigationAware
         _navigation = navigation;
         Title = "All Bookings";
     }
+
+    Task IRefreshable.RefreshAsync() => RefreshCommand.ExecuteAsync(null);
 
     public override async Task OnNavigatedToAsync(object? parameter = null)
         => await RunBusyAsync(async () =>

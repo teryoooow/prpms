@@ -1,7 +1,7 @@
 ; ============================================================================
 ;  PRPMS — Inno Setup installer script
 ;  Compile with:  ISCC.exe installer\ResortSync.iss
-;  Output:        installer\Output\PRPMS-Setup-1.0.1.exe
+;  Output:        installer\Output\PRPMS-Setup-1.0.2.exe
 ;
 ;  Ships the self-contained publish produced by:
 ;    dotnet publish src\ResortSync\ResortSync.csproj -c Release -r win-x64
@@ -11,7 +11,7 @@
 
 #define MyAppName "PRPMS"
 #define MyAppNameFull "PRPMS — Private Resort Payment Monitoring System"
-#define MyAppVersion "1.0.1"
+#define MyAppVersion "1.0.2"
 #define MyAppPublisher "Terelle Sarmiento"
 #define MyAppExeName "PRPMS.exe"
 
