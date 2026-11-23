@@ -1,5 +1,7 @@
 # PRPMS — Private Resort Payment Monitoring System
 
+[![GitHub](https://img.shields.io/badge/GitHub-teryoooow%2Fprpms-181717?logo=github)](https://github.com/teryoooow/prpms)
+
 A production-ready **Windows desktop + Android mobile** application suite for monitoring
 payments at a private resort. It tracks bookings, enforces the 24-hour downpayment rule,
 records payments (downpayments, balance settlements, security deposits, refunds), prints
@@ -30,7 +32,8 @@ see the same data.
   `Cancelled` / `Expired`, with a legal-transition guard
 - **Receipts** — printable receipt via the system print dialog
 - **Settings** — resort name, downpayment percentage (default 50%), default extra-guest
-  rate, light/dark theme (persisted)
+  rate, light/dark theme (persisted), plus cloud-sync credentials (Firebase API key,
+  project id, sync account) with a status line and **Sync Now**
 - **Offline-first** — SQLite database stored locally; nothing leaves the machine until
   cloud sync is enabled
 - **Two-way cloud sync** — desktop and Android share one Firestore project; last-write-wins
@@ -106,7 +109,7 @@ Install the signed APK from `installer\Output\com.terelle.prpms-Signed.apk`
 API key / project id / sync account, enable sync, then **Sync Now**.
 
 ### Developers
-Requires the .NET 8 SDK (+ Android workload for mobile: `dotnet workload install maui-android`).
+Requires the .NET 8 SDK (+ workloads for mobile: `dotnet workload install android maui`).
 
 ```powershell
 git clone https://github.com/teryoooow/prpms.git
@@ -169,6 +172,11 @@ adb install -r src\ResortSync.Mobile\bin\Debug\net8.0-android\com.terelle.prpms-
    `dotnet-dump`; unhandled-exception guard with a re-entrancy latch.
 9. **Packaging** — self-contained win-x64 publish + Inno Setup installer with a generated
    multi-size app icon, silent-install support, and data-preserving uninstall.
+10. **Mobile + sync** — shared domain/sync extracted to `ResortSync.Core`; a .NET MAUI
+    Android app (Bookings / Payments / Settings) talks to Firebase Auth + Firestore over
+    REST (no mobile SDK); last-write-wins sync engine with tombstones, a 60-second worker,
+    and on-resume sync; signed release APK plus 24 unit tests covering the engine,
+    coordinator, sync stamping, and schema migrations.
 
 ## Data Locations
 
